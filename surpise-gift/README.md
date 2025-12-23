@@ -1,9 +1,9 @@
-# 给女朋友的小惊喜
+A Little Surprise for My Girlfriend
 
-需要修改的部分是index.html文件部分内容。
+The part that needs modification is the index.html file.
 
-现已发现日期设置成“喜欢你”当月会出现问题。
+It has been found that setting the date to the month when you "like her" will cause issues.
 
-**我不得不提醒一句，前来fork的哥们儿，这不是我的原创**
+I have to remind you, for those who come to fork this, this is not my original work.
 
-我是在某个纯前端设计网站上面看到的，然后觉得很有意思，就把仓库搞了过来。随机被舍友发现了这个页面，他就拿去用了。本身他女友也挺喜欢的。然而万万没想到的是，她女朋友刷短视频。短视频里面有一个哥们儿对着电脑也在写代码，然后画面呈现的就是这个仓库的页面。奉劝各位，还是不要说是自己原创的，真要被逮住了可麻烦得很。
+I saw this on a purely front-end design website, found it interesting, and decided to bring the repository over. Randomly, my roommate discovered this page and used it. His girlfriend also liked it. However, unexpectedly, she was watching short videos, and in one of them, a guy was coding on a computer, and the screen shown was exactly this repository’s page. I advise everyone: don’t claim it as your own original work. If you really get caught, it could be troublesome.
