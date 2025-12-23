@@ -531,3 +531,78 @@
     window.Tree = Tree;
 
 })(window);
+// ================= FLOATING PINK HEARTS =================
+
+(function () {
+
+    var canvas = document.getElementById("canvas");
+    if (!canvas) return;
+
+    var ctx = canvas.getContext("2d");
+    var width = canvas.width;
+    var height = canvas.height;
+
+    function FloatingHeart(x, y, size, speed) {
+        this.x = x;
+        this.y = y;
+        this.size = size;
+        this.speed = speed;
+        this.alpha = 1;
+    }
+
+    FloatingHeart.prototype.draw = function () {
+        ctx.save();
+        ctx.globalAlpha = this.alpha;
+        ctx.fillStyle = "pink";
+        ctx.beginPath();
+
+        var t = this.size;
+        ctx.moveTo(this.x, this.y);
+        ctx.bezierCurveTo(this.x, this.y - t, this.x - t, this.y - t, this.x - t, this.y);
+        ctx.bezierCurveTo(this.x - t, this.y + t, this.x, this.y + t * 1.4, this.x, this.y + t * 2);
+        ctx.bezierCurveTo(this.x, this.y + t * 1.4, this.x + t, this.y + t, this.x + t, this.y);
+        ctx.bezierCurveTo(this.x + t, this.y - t, this.x, this.y - t, this.x, this.y);
+
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+    };
+
+    FloatingHeart.prototype.update = function () {
+        this.y -= this.speed;
+        this.alpha -= 0.008;
+    };
+
+    var hearts = [];
+
+    function addHeart() {
+        hearts.push(
+            new FloatingHeart(
+                Math.random() * width,
+                height + 20,
+                8 + Math.random() * 12,
+                0.8 + Math.random() * 1.5
+            )
+        );
+    }
+
+    function animateHearts() {
+        ctx.clearRect(0, 0, width, height);
+
+        for (var i = hearts.length - 1; i >= 0; i--) {
+            hearts[i].update();
+            hearts[i].draw();
+            if (hearts[i].alpha <= 0) {
+                hearts.splice(i, 1);
+            }
+        }
+
+        if (Math.random() < 0.08) addHeart();
+
+        requestAnimationFrame(animateHearts);
+    }
+
+    animateHearts();
+
+})();
+
